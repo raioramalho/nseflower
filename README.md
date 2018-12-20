@@ -17,4 +17,3 @@ Engine Options:
     --script-help <script>: Shows help about scripts. For each script matching the given specification
     --script-trace <>: This option does what --packet-trace does, just one ISO layer higher
     --script-updatedb <>: This option updates the script database found in scripts/script.db
-
