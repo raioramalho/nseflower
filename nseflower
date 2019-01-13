@@ -25,26 +25,26 @@ v_type=""
 
 #::Global Functions
 f_run() {
-	printf "
-Nseflower v1.0 (https://gitlab.com/raioramalho/nseflower)
+    printf "
+    Nseflower v1.0 (https://gitlab.com/raioramalho/nseflower)
 
-Automate scans with nmap script engine (NSE).
-This tool has been translated from Portuguese[br] into English[us].\n\n"
+    Automate scans with nmap script engine (NSE).
+    This tool has been translated from Portuguese[br] into English[us].\n\n"
 }
 
 
 f_logo() {
-	printf "
-Nseflower v1.0 (https://gitlab.com/raioramalho/nseflower)
+    printf "
+    Nseflower v1.0 (https://gitlab.com/raioramalho/nseflower)
 
-Automate scans with nmap script engine (NSE).
-This tool has been translated from Portuguese[br] into English[us].
-I do not take responsibility for your actions.
-This code uses a GPL license.
+    Automate scans with nmap script engine (NSE).
+    This tool has been translated from Portuguese[br] into English[us].
+    I do not take responsibility for your actions.
+    This code uses a GPL license.
 
-Usage: nseflower --run <script> -rhost <target> <target especification> <nmap extra options>
+    Usage: nseflower --run <script> -rhost <target> <target especification> <nmap extra options>
 
-Engine Options:
+    Engine Options:
     --run <>: Start the scan with script on target
     --easy <>: Start the old version with easy mode
     --list <type>: List all the scripts or specify the type: smb, ssh, ftp...
@@ -54,9 +54,9 @@ Engine Options:
 }
 
 f_list() {
-	printf "Listing scripts based on: $v_type\nNumber of scripts found: $(ls $v_nsedir | sed 's/.nse//g' | grep "$v_type" | wc -l)\n\n"
-	sleep 1
-	ls $v_nsedir | sed 's/.nse//g' | grep "$v_type"
+    printf "Listing scripts based on: $v_type\nNumber of scripts found: $(ls $v_nsedir | sed 's/.nse//g' | grep "$v_type" | wc -l)\n\n"
+    sleep 1
+    ls $v_nsedir | sed 's/.nse//g' | grep "$v_type"
 }
 
 f_start() {
@@ -64,8 +64,8 @@ f_start() {
 }
 
 f_easy() {
-	printf "Wait.. in development!\n"
-	exit 0
+    printf "Wait.. in development!\n"
+    exit 0
 }
 ###############################################
 
@@ -73,15 +73,15 @@ f_easy() {
 
 #::Arguments Menu
 case $1 in
-	--help)f_logo;;
-	-help)f_logo;;
-	-h)f_logo;;
-	--run)f_run; v_script="$2"; v_rhost="$4"; v_addons="$5 $6 $7 $8 $9 ${10} ${11} ${12}";f_start;;
-	--list)f_run; v_type=$2; f_list;;
-	--script-help) nmap $1 $2 $3 $4;;
-	--script-trace) nmap $1 $2 $3 $4;;
-	--script-updatedb) nmap $1;;
-	--easy)f_run; f_easy;;
-	*)f_logo;;
+    --help)f_logo;;
+    -help)f_logo;;
+    -h)f_logo;;
+    --run)f_run; v_script="$2"; v_rhost="$4"; v_addons="$5 $6 $7 $8 $9 ${10} ${11} ${12}";f_start;;
+    --list)f_run; v_type=$2; f_list;;
+    --script-help) nmap $1 $2 $3 $4;;
+    --script-trace) nmap $1 $2 $3 $4;;
+    --script-updatedb) nmap $1;;
+    --easy)f_run; f_easy;;
+    *)f_logo;;
 esac
 ###############################################
